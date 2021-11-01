@@ -18,12 +18,12 @@ def get_transactions(text):
 
 # Get input and output file as arguments
 parser = argparse.ArgumentParser(description="Import transactions from Military Star Card MyECP Statement PDF into YNAB CSV file")
-parser.add_argument('pdf', type=argparse.FileType('rb'), help="Statement PDF to parse")
-parser.add_argument('csv', type=argparse.FileType('w'), help="Filename to write to")
+parser.add_argument('pdf', help="PDF Statement to import")
+parser.add_argument('-o', '--output', default="out.csv", help="CSV Filename to write to")
 args = parser.parse_args()
 
 # Open PDF
-with args.pdf as pdf_file:
+with open(args.pdf, 'rb') as pdf_file:
     pdf = PyPDF4.PdfFileReader(pdf_file)
 
     # Get text from each page and pass to regex parser
@@ -31,10 +31,7 @@ with args.pdf as pdf_file:
     for page in pdf.pages:
         transactions.extend(get_transactions(page.extractText()))
 
-
-with args.csv as csv_file:
+with open(args.output, 'w', newline='') as csv_file:
     writer = csv.DictWriter(csv_file, transactions[0].keys())
     writer.writeheader()
     writer.writerows(transactions)
-    
-    
