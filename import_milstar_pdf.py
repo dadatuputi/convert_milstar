@@ -4,6 +4,8 @@ import re
 import csv
 import datetime
 
+# Published at https://github.com/dadatuputi/import_milstar
+
 # Use https://regex101.com/
 regex_transactions = r"Transactions\nDate\nDescription\nReference #\nLocation\nAmount\n(?P<Transactions>.*?)\n ?\n"
 regex_transaction = r"(?P<Date>\d{1,2}\s\w+\s\d{4})\n(?P<Memo>Charge|Return|ACH Online Pymt)\n(?P<Ref>[\d ]+)?\n?(?P<Payee>[\w\. ]+)\n(?P<Outflow>-{0,1}[$\.\d]+)"
@@ -53,9 +55,9 @@ def get_transactions(text):
 
 # Get input and output file as arguments
 parser = argparse.ArgumentParser(description="Import transactions from Military Star Card MyECP Statement PDF into YNAB CSV file")
-parser.add_argument('pdf', help="PDF Statement to import")
-parser.add_argument('-o', '--output', default="out.csv", help="CSV Filename to write to")
+parser.add_argument('-o', '--output', default="milstar_out.csv", help="CSV Filename to write to")
 parser.add_argument('-d', '--debug', help="Debug by printing out text of supplied PDF", action='store_true')
+parser.add_argument('pdf', help="PDF Statement to import")
 args = parser.parse_args()
 
 # Open PDF
