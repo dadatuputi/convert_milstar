@@ -49,7 +49,7 @@ def get_transactions(text):
         if not transaction.pop('Ref'):
             ref_str = ""
         transaction['Memo'] = "{}{}".format(transaction['Memo'], ref_str)
-        transaction['Date'] = datetime.datetime.strptime(transaction['Date'], "%d %b %Y").strftime("%Y/%m/%d")
+        transaction['Date'] = datetime.datetime.strptime(transaction['Date'], "%d %b %Y").strftime("%Y-%m-%d")
     
     return transactions
 
