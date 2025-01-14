@@ -8,7 +8,7 @@ import datetime
 
 # Use https://regex101.com/
 regex_transactions = r"Transactions\nDate\nDescription\nReference #\nLocation\nAmount\n(?P<Transactions>.*?)\n ?\n"
-regex_transaction = r"(?P<Date>\d{1,2}\s\w+\s\d{4})\n(?P<Memo>Charge|Return|ACH Online Pymt|Principal Credit Adj.|Principal Debit Adj.)\n(?P<Ref>[\d ]+)?\n?(?P<Payee>[\w\. ]+)\n(?P<Outflow>-{0,1}[$\.\d]+)"
+regex_transaction = r"(?P<Date>\d{1,2}\s\w+\s\d{4})\n(?P<Memo>Charge|Return|ACH Online Pymt|Principal Credit Adj.|Principal Debit Adj.|Promo Plan Swap)\n(?P<Ref>[\d ]+)?\n?(?P<Payee>[\w\. ]+)\n(?P<Outflow>-{0,1}[$\.\d]+)"
 
 regex_fees = r"Fees\nDate\nDescription\nAmount\n(?P<Fees>.*)Total Fees for This Period"
 regex_fee = r"(?P<Date>\d{1,2}\s\w+\s\d{4})\n(?P<Memo>.+?)\n(?P<Outflow>-{0,1}[$\.\d]+)"
