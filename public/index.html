@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MilStar PDF to CSV Converter</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="intro">
+        <h1>Military Star Statement Converter</h1>
+        <p>Convert your Military Star Card statement PDF into a CSV file for importing into budgeting software.</p>
+        <ol class="instructions">
+            <li>Upload your Military Star statement PDF using the box below</li>
+            <li>Click <kb>Process PDF</kb> to extract the transactions</li>
+            <li>Download the CSV file for importing into your budgeting software</li>
+        </ol>
+    </div>
+
+    <div class="drop-zone numbered-box" id="dropZone">
+        <div class="box-number">1</div>
+        <p>Drag and drop your MilStar PDF here<br>or click to select file</p>
+        <div class="file-info" id="fileInfo"></div>
+        <input type="file" id="pdfInput" accept=".pdf" style="display: none;" />
+    </div>
+
+    <div class="container">
+        <div class="viewer numbered-box">
+            <div class="box-number">2</div>
+            <div class="header">
+                <h3>PDF Preview</h3>
+                <button id="processButton" disabled>Process PDF</button>
+            </div>
+            <div id="pdfContainer"></div>
+        </div>
+        <div class="csv-viewer numbered-box">
+            <div class="box-number">3</div>
+            <div class="header">
+                <h3>CSV Preview</h3>
+                <button id="downloadCsv" disabled>Download CSV</button>
+            </div>
+            <div id="csvContent"></div>
+        </div>
+    </div>
+
+    <footer>
+        All processing happens in your browser - your data never leaves your device.<br>
+        <a href="https://github.com/dadatuputi/convert_milstar">View source code on GitHub</a>
+    </footer>
+
+    <script src="pdf.3.11.174.min.js"></script>
+    <script src="convert.js"></script>
+</body>
+</html>
