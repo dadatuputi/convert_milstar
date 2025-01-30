@@ -1,6 +1,6 @@
 # 💳 Military Star Statement Converter 
 
-🌐 [Try it now!](https://dadatuputi.github.io/import_milstar)
+🌐 [Try it now!](https://dadatuputi.github.io/convert_milstar)
 
 Convert Military Star Card PDF statements into CSV files for your favorite budgeting software! 📊
 
@@ -19,4 +19,4 @@ Convert Military Star Card PDF statements into CSV files for your favorite budge
 
 ## 🙏 Credits
 
-Based on [import_milstar_pdf.py](https://github.com/dadatuputi/import_milstar) by @dadatuputi
+Based on the original [import_milstar_pdf.py](https://github.com/dadatuputi/convert_milstar/blob/master/import_milstar_pdf.py) script by @dadatuputi
