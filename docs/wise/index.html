@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wise to YNAB Converter</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="intro">
+        <h1>💱 Wise to YNAB Converter</h1>
+        <p>Convert your Wise transaction export into YNAB-compatible format</p>
+        
+        <ol start="0">
+           <li>Export your transactions from Wise as CSV</li>
+           <li>Upload your Wise CSV using the box below</li>
+           <li>Download the YNAB-compatible CSV</li>
+        </ol>
+    </div>
+
+    <div class="drop-zone numbered-box" id="dropZone">
+        <div class="box-number">1</div>
+        <p>Drag and drop your Wise CSV here<br>or click to select file</p>
+        <div class="file-info" id="fileInfo"></div>
+        <input type="file" id="csvInput" accept=".csv" style="display: none;" />
+    </div>
+
+    <div class="container">
+        <div class="csv-viewer numbered-box">
+            <div class="box-number">2</div>
+            <div class="header">
+                <h3>Preview</h3>
+                <button id="downloadCsv" disabled>Download for YNAB</button>
+            </div>
+            <div id="csvContent"></div>
+        </div>
+    </div>
+
+    <footer>
+        All processing happens in your browser - your data never leaves your device.
+    </footer>
+
+    <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="/static/convert_wise.js"></script>
+</body>
+</html>
